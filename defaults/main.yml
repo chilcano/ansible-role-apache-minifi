@@ -1,0 +1,19 @@
+---
+### actions
+minifi_action_clean: true
+minifi_action_install: false
+minifi_action_run: false
+
+### download and install
+localmirror_dir_name_www: "localmirror"
+#minifi_url_bin_installer: "https://public-repo-1.hortonworks.com/HDF/2.1.2.0/minifi-1.0.2.1.2.0-10-bin.tar.gz"
+#minifi_url_bin_installer: "http://apache.mirror.anlx.net/nifi/minifi/0.1.0/minifi-0.1.0-bin.tar.gz"
+minifi_url_bin_installer: "http://{{ groups['pibuilder'][0] }}/{{ localmirror_dir_name_www }}/minifi-{{ minifi_version }}-bin.{{ minifi_packaging }}"
+minifi_version: "0.1.0"
+minifi_packaging: "tar.gz"
+
+### clean
+minifi_remove_dependencies: false
+
+### run
+minifi_service_name: minifipi

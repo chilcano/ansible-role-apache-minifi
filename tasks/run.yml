@@ -1,0 +1,19 @@
+---
+- debug: msg="(( Running Apache MiNiFi. ))"
+
+- name: Copying '{{ minifi_service_name }}.service.j2' template.
+  template:
+    src: "templates/{{ minifi_service_name }}.service.j2"
+    dest: "/etc/systemd/system/{{ minifi_service_name }}.service"
+
+- name: Daemon-Reloading '{{ minifi_service_name }}' systemd service.
+  command: "systemctl daemon-reload"
+
+- name: Re/Starting '{{ minifi_service_name }}' systemd service.
+  service:
+    name: "{{ minifi_service_name }}.service"
+    state: started
+    enabled: yes
+
+- debug:
+    msg: "The MiNiFi service '{{ minifi_service_name }}.service' has started successfully."

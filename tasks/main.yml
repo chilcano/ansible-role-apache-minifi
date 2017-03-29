@@ -1,0 +1,12 @@
+---
+- name: Clean previous MiNiFi installation and generated files.
+  include: clean.yml
+  when: ({{ minifi_action_clean }})
+
+- name: Install and configure MiNiFi.
+  include: install.yml
+  when: ({{ minifi_action_install }})
+
+- name: Run MiNiFi as systemd service.
+  include: run.yml
+  when: ({{ minifi_action_run }})
