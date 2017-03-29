@@ -1,8 +1,8 @@
 ---
 ### actions
 minifi_action_clean: true
-minifi_action_install: false
-minifi_action_run: false
+minifi_action_install: true
+minifi_action_run: true
 
 ### download and install
 localmirror_dir_name_www: "localmirror"
